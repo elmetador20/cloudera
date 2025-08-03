@@ -14,7 +14,10 @@
     "drizzle-orm": "^0.44.4",
     "next": "15.4.5",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "db:push":"drizzle-kit push",
+    "db-studio":"drizzle-kit studio",
+    "db:generate":"drizzle-kit generate"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
