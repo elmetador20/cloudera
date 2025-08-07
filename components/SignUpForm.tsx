@@ -29,7 +29,7 @@ export default function signUpForm(){
     });
 
     const onSubmit= async(data:z.infer<typeof signUpSchema>)=>{
-       if(!isLoaded)return;
+       if(!isLoaded)return;//return the value
 
     }
 
