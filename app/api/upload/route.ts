@@ -15,23 +15,23 @@ export async function POST(request: NextRequest) {
     }
 
     //parse request body
-    const body=await request.json()
-    const {imagekit,userId:bodyUserId}=body
+    const body = await request.json()
+    const { imagekit, userId: bodyUserId } = body
 
 
-    if(bodyUserId!==userId){
-       return NextResponse.json({ error: "unauthorized" },
+    if (bodyUserId !== userId) {
+      return NextResponse.json({ error: "unauthorized" },
         { status: 401 });
-       }
+    }
 
-       if(!imagekit||!imagekit.url){
-         return NextResponse.json({ error: "Invakid file Upload data" },
+    if (!imagekit || !imagekit.url) {
+      return NextResponse.json({ error: "Invalid file Upload data" },
         { status: 401 })
 
-       }
-       const fileData={
-        name: imagekit.name || "Untitled",
-      path: imagekit.filePath || `/droply/${userId}/${imagekit.name}`,
+    }
+    const fileData = {
+      name: imagekit.name || "Untitled",
+      path: imagekit.filePath || `/cloudera/${userId}/${imagekit.name}`,
       size: imagekit.size || 0,
       type: imagekit.fileType || "image",
       fileUrl: imagekit.url,
@@ -41,11 +41,11 @@ export async function POST(request: NextRequest) {
       isFolder: false,
       isStarred: false,
       isTrash: false,
-       };
-      const [newFile]= await db.insert(files).values(fileData).returning()
-      return NextResponse.json(newFile)
+    };
+    const [newFile] = await db.insert(files).values(fileData).returning()
+    return NextResponse.json(newFile)
   } catch (error) {
-     return NextResponse.json({error:"Failed to save data in databse" },{status:500})
+    return NextResponse.json({ error: "Failed to save data in databse" }, { status: 500 })
 
   }
 }
