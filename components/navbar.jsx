@@ -1,4 +1,5 @@
 "use client"
+//added navbar
 
 import React, { useState, useEffect } from 'react';
 
@@ -49,6 +50,7 @@ export default function BlueNavbar() {
             >
               YourLogo
             </a>
+            
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex items-center space-x-3">
@@ -61,6 +63,7 @@ export default function BlueNavbar() {
                       activeLink === link.id ? 'bg-white/20 shadow-md' : ''
                     }`}
                   >
+                    zz
                     <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></span>
                     <span className="relative">{link.label}</span>
                   </a>
