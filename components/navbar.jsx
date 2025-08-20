@@ -151,4 +151,3 @@ export default function BlueNavbar() {
     </div>
   );
 }
-//import us effect 
